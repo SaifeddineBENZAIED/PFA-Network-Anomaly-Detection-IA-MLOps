@@ -1,0 +1,13 @@
+.benign-class {
+    background-color: green;
+    color: white;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.attack-class {
+    background-color: red;
+    color: white;
+    padding: 20px;
+    border: 2px solid black;
+}

@@ -1,0 +1,145 @@
+<div class="main-container">
+    <div class="row min-height-600 no-flex-wrap">
+        <div class="card col-md-2 marg-r">
+            <div class="col">
+                <div class="border-non mt-3 mb-2">
+                    <h5 class="text-center">Détection d'anomalie dans un réseau</h5>
+                </div>
+                <br>
+                <div>
+                    <!--<app-menu></app-menu>-->
+                </div>
+            </div>
+        </div>
+        <div class="card col-md-10 pl-0 pr-0 background-beige border-0 border-non">
+            <div class="col pl-0 pr-0 d-flex flex-column justify-content-between">
+                <div class="card p-3 min-height-70 mb-2">
+                    <div class="row">
+                        <div class="col-md-8 d-flex align-items-center">
+                          <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control" placeholder="Rechercher" aria-label="Rechercher" aria-describedby="addon-wrapping">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-center">
+                            <div class="row ms-auto">
+                                <div class="col-md-9 text-end">
+                                    <span><h5>Bienvenue dans notre site</h5></span>
+                                </div>
+                                <!--<div class="col-md-3" *ngIf="isUser">
+                                    <a href="javascript:void(0);" routerLink="/profil"><img [src]="person.image ? person.image : 'assets/profilImg.png'" height="40px" width="40px"></a>
+                                </div>
+                                <div class="col-md-3" *ngIf="!isUser">
+                                  <a href="javascript:void(0);" routerLink="/profilclient"><img [src]="person.image ? person.image : 'assets/profilImg.png'" height="40px" width="40px"></a>
+                              </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-2" style="min-height: 500px;">
+                    <app-loader></app-loader>
+
+                    <div class="m-5">
+
+                        <br />
+                
+                        <div class="m-2">
+                            <h2>Charger un Fichier CSV</h2>
+                            <br>
+                
+                            <div class="input-group">
+                                <input type="file" class="form-control" (change)="onFileChange($event)" accept=".csv, .xlsx" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                <button class="btn btn-outline-primary" (click)="uploadFile()" type="button" id="inputGroupFileAddon04">Analyser</button>
+                            </div>
+                        </div>
+                
+                        <br />
+                
+                
+                        <div *ngIf="response">
+                        <hr>
+                        <br>
+                        <h3>Résultats de l'Analyse</h3>
+                        <br>
+                        <br>
+                        <div class="row text-center d-flex flex-column align-items-center">
+                            <div class="row m-1">
+                                <div class="benign-class" *ngIf="response.most_probable_class === 'BENIGN'">
+                                    <h5>{{ response.most_probable_class }}</h5> &nbsp; <i class="fa-solid fa-square-check"></i>
+                                </div>
+                                <div class="attack-class" *ngIf="response.most_probable_class !== 'BENIGN'">
+                                    <h5>{{ response.most_probable_class }}</h5> &nbsp; <i class="fa-solid fa-shield-virus"></i>
+                                </div>
+                            </div>
+                            <br><br>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                Plus de détails
+                            </button>
+                        </div>
+                        
+                        </div>
+                
+                    </div>
+
+                </div>
+                <div class="card min-height-70">
+                    <div class="row">
+
+                        <div class="col-md-7 m-2">
+                            Explorez notre notre site web qui vous aide pour analyser les données de votre réseau pour connaitre son état.
+                        </div>
+                        <div class="col-md-4 m-2">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    RT4_2023-2024
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    RT4_2023-2024
+                                </div>
+                            </div>
+                        </div>
+                    
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Détails</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h4>Résultats :</h4>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let item of response.sorted_classes">
+                    {{ item.class }}: {{ item.probability | number:'1.2-2' }} %
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer &nbsp;<i class="fa-regular fa-circle-xmark"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
