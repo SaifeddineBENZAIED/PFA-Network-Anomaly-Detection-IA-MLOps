@@ -78,7 +78,6 @@ PFA-Network-Anomaly-Detection-IA-MLOps/
 
 └── .gitignore # Git ignore file
 
-Copy
 
 ---
 
@@ -99,104 +98,93 @@ Copy
    ```bash
    git clone https://github.com/SaifeddineBENZAIED/PFA-Network-Anomaly-Detection-IA-MLOps.git
    cd PFA-Network-Anomaly-Detection-IA-MLOps
+   ```
 Set Up the AI Models:
 
 Train the CNN model:
 
-bash
-Copy
+```bash
 cd ai-models/cnn_model
 python train_cnn.py
+```
+
 Compare ML models:
 
-bash
-Copy
+```bash
 cd ai-models/ml_models
 python compare_models.py
+```
+
 Deploy the Model with BentoML:
 
 Package the model:
 
-bash
-Copy
+```bash
 cd mlops-pipeline/bentoml
 bentoml build
+```
+
 Serve the model using FastAPI:
 
-bash
-Copy
+```bash
 bentoml serve
+```
+
 Run the Web Application:
 
 Start the Django backend:
 
-bash
-Copy
+```bash
 cd web-app/backend
 python manage.py runserver
+```
+
 Start the Angular frontend:
 
-bash
-Copy
+```bash
 cd web-app/frontend
 ng serve
+```
+
 Monitor the Model:
 
 Set up Prometheus and Grafana for monitoring:
 
-bash
-Copy
+```bash
 cd mlops-pipeline/monitoring
 docker-compose up -d
+```
+
 🔍 Key Features
 AI Models
-CNN Model: Deep learning model for anomaly detection.
 
-Model Comparison: Comparison of CNN with traditional ML models (e.g., Random Forest, SVM).
+- CNN Model: Deep learning model for anomaly detection.
 
-Model Evaluation: Metrics like accuracy, precision, recall, and F1-score.
+- Model Comparison: Comparison of CNN with traditional ML models (e.g., Random Forest, SVM).
+
+- Model Evaluation: Metrics like accuracy, precision, recall, and F1-score.
 
 Web Application
-User Interface: Built with Angular for visualizing results.
 
-Backend API: Built with Django for handling requests and interacting with the AI model.
+- User Interface: Built with Angular for visualizing results.
+
+- Backend API: Built with Django for handling requests and interacting with the AI model.
 
 MLOps Pipeline
-Data Preprocessing: Automated data cleaning and feature engineering.
 
-Model Training: Automated training and evaluation of models.
+- Data Preprocessing: Automated data cleaning and feature engineering.
 
-Model Deployment: Deployment using BentoML and FastAPI.
+- Model Training: Automated training and evaluation of models.
 
-Monitoring: Real-time monitoring of model performance using Prometheus and Grafana.
+- Model Deployment: Deployment using BentoML and FastAPI.
+
+- Monitoring: Real-time monitoring of model performance using Prometheus and Grafana.
 
 📊 Results
-Best Model: CNN achieved the highest accuracy and F1-score for anomaly detection.
 
-MLOps Pipeline: Successfully automated the model lifecycle, from data preprocessing to deployment.
+- Best Model: CNN achieved the highest accuracy and F1-score for anomaly detection.
 
-Web App: Provides an intuitive interface for users to interact with the model and visualize results.
+- MLOps Pipeline: Successfully automated the model lifecycle, from data preprocessing to deployment.
 
-📫 Contact
-For questions or feedback, feel free to reach out:
+- Web App: Provides an intuitive interface for users to interact with the model and visualize results.
 
-Email: saif2001benz2036@gmail.com
-
-LinkedIn: Saifeddine Benzaied
-
-GitHub: SaifeddineBENZAIED
-
-✨ Let’s build something amazing together! ✨
-
-Copy
-
----
-
-### Key Features of the README:
-1. **Clear Structure**: Organized into sections for easy navigation.
-2. **Technologies Highlighted**: Lists all tools and technologies used.
-3. **Step-by-Step Guide**: Provides clear instructions for setting up and running the project.
-4. **Visual Appeal**: Uses emojis and markdown formatting for better readability.
-5. **Recruiter-Friendly**: Demonstrates your expertise in AI, MLOps, and Web Development.
-
-This README is **ready to use** and will make your repository stand out! 🚀
